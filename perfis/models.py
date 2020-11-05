@@ -6,7 +6,7 @@ class Perfil(models.Model):
     email = models.CharField(max_length=255, null=False)
     telefone = models.CharField(max_length=255, null=False)
     nome_empresa = models.CharField(max_length=255, null=False)
-'''
+
     def convidar(self, perfil_convidado):
         convite = Convite(solicitante=self,convidado=perfil_convidado)
         convite.save()
@@ -16,4 +16,4 @@ class Convite(models.Model):
 
     solicitante = models.ForeignKey(Perfil, related_name='convites_feitos', on_delete= models.CASCADE)
     convidado = models.ForeignKey(Perfil, related_name='convites_recebido', on_delete=models.CASCADE)
-    '''
+
